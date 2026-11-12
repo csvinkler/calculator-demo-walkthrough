@@ -1,0 +1,13 @@
+name: Unit tests
+
+on:
+  pull_request: # every pull request is tested before it can be merged
+  push:
+    branches: [main]
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-24.04 # Node.js is preinstalled on this machine
+    steps:
+      - uses: actions/checkout@v7 # get the code
+      - run: node tests/run-tests.js # same tests as tests/tests.html

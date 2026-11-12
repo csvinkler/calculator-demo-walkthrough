@@ -11,3 +11,5 @@ A tiny web page published with GitHub Pages, used to show manual testing, unit t
 
 - In the browser: open `tests/tests.html` (double-click the file, no install needed).
 - In a terminal: `node tests/run-tests.js`
+- Automatically: GitHub Actions runs them on every pull request (`.github/workflows/unit-tests.yml`).
+  A ruleset on `main` blocks the merge while they fail.
