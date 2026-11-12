@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Unit tests: Mini Calculator</title>
+  <style>
+    body { font-family: "Segoe UI", Arial, sans-serif; margin: 40px auto; max-width: 720px; color: #222; }
+    h1 { color: #4827AF; }
+    #summary { font-size: 1.5em; font-weight: bold; padding: 12px 16px; color: #fff; }
+    table { border-collapse: collapse; width: 100%; margin-top: 16px; font-size: 1.1em; }
+    td, th { border: 1px solid #ddd; padding: 8px 10px; text-align: left; }
+    .pass { background: #e6f4ea; }
+    .fail { background: #fde7e7; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Unit tests: Mini Calculator</h1>
+  <div id="summary"></div>
+  <table>
+    <thead><tr><th>Result</th><th>Requirement</th><th>Test</th><th>Expected</th><th>Actual</th></tr></thead>
+    <tbody id="results"></tbody>
+  </table>
+
+  <script src="../calc.js"></script>
+  <script src="calc.tests.js"></script>
+  <script>
+    const results = runTests();
+    const failed = results.filter((r) => !r.passed).length;
+    for (const r of results) {
+      document.getElementById("results").insertAdjacentHTML("beforeend",
+        `<tr class="${r.passed ? "pass" : "fail"}"><td>${r.passed ? "PASS" : "FAIL"}</td>` +
+        `<td>${r.req}</td><td>${r.name}</td><td>${r.expected}</td><td>${r.actual}</td></tr>`);
+    }
+    const summary = document.getElementById("summary");
+    summary.textContent = `${results.length - failed} passed, ${failed} failed`;
+    summary.style.background = failed ? "#d1242f" : "#1a7f37";
+  </script>
+</body>
+</html>
