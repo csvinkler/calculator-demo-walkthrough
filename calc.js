@@ -3,7 +3,7 @@
 // REQ-02: The second row shows the difference of the two numbers (a - b).
 
 function add(a, b) {
-  return a + b;
+  return a - b;
 }
 
 function subtract(a, b) {
