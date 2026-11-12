@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mini Calculator</title>
+  <style>
+    body { font-family: "Segoe UI", Arial, sans-serif; margin: 60px auto; max-width: 560px; color: #222; }
+    h1 { color: #4827AF; }
+    .row { display: flex; align-items: center; gap: 10px; margin: 18px 0; font-size: 1.6em; }
+    input { width: 110px; font-size: 1em; padding: 6px; border: 2px solid #ccc; }
+    input[readonly] { background: #f4f2fb; border-color: #4827AF; font-weight: bold; }
+    button { font-size: 1em; padding: 4px 16px; background: #FF4208; color: #fff; border: 0; cursor: pointer; }
+    .req { color: #777; font-size: 0.9em; }
+  </style>
+</head>
+<body>
+  <h1>Mini Calculator</h1>
+
+  <div class="row">
+    <input id="add-a" type="number" value="2"> +
+    <input id="add-b" type="number" value="3">
+    <button id="add-btn">=</button>
+    <input id="add-result" readonly>
+  </div>
+
+  <div class="row">
+    <input id="sub-a" type="number" value="7"> &minus;
+    <input id="sub-b" type="number" value="4">
+    <button id="sub-btn">=</button>
+    <input id="sub-result" readonly>
+  </div>
+
+  <p class="req">REQ-01: first row shows a + b. REQ-02: second row shows a &minus; b.</p>
+
+  <script src="calc.js"></script>
+  <script>
+    function value(id) { return Number(document.getElementById(id).value); }
+
+    document.getElementById("add-btn").onclick = () => {
+      document.getElementById("add-result").value = add(value("add-a"), value("add-b"));
+    };
+    document.getElementById("sub-btn").onclick = () => {
+      document.getElementById("sub-result").value = subtract(value("sub-a"), value("sub-b"));
+    };
+  </script>
+</body>
+</html>
