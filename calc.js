@@ -7,7 +7,7 @@ function add(a, b) {
 }
 
 function subtract(a, b) {
-  return a - b;
+  return b - a;
 }
 
 // Lets the unit tests load this file in Node.js too (ignored by the browser).
